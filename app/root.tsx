@@ -9,6 +9,7 @@ import {
 } from '@remix-run/react';
 
 import stylesheet from '~/tailwind.css';
+import { NavigationOverlay } from './compnents/navigation-overlay';
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
@@ -23,7 +24,8 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-background">
+        <NavigationOverlay />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
