@@ -1,10 +1,30 @@
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { useState } from 'react';
 import { cn } from '~/lib/cn';
 
 export function NavigationOverlay() {
   const [isOpen, setIsOpen] = useState(false);
+  // 0 when closed, 1 when opened
+  const motionValue = useMotionValue(0);
+  const inputRange = [0, 1];
 
-  const toggle = () => setIsOpen((prev) => !prev);
+  const ellipseX = useTransform(motionValue, inputRange, [0, 100]);
+
+  // Start at the top right then end up at the center
+  const clipPathX = useTransform(motionValue, inputRange, [110, 50]);
+  const clipPathY = useTransform(motionValue, inputRange, [0, 50]);
+
+  const toggle = () => {
+    setIsOpen((prev) => {
+      const newValue = !prev;
+      if (newValue) {
+        motionValue.set(1);
+      } else {
+        motionValue.set(0);
+      }
+      return newValue;
+    });
+  };
 
   return (
     <>
@@ -16,6 +36,7 @@ export function NavigationOverlay() {
             : 'border-2 border-primary'
         )}
         onClick={toggle}
+        aria-label="Toggle navigation"
       >
         <div
           className={cn(
@@ -32,7 +53,47 @@ export function NavigationOverlay() {
           )}
         ></div>
       </button>
-      {isOpen && <div className="fixed h-screen w-screen z-10 bg-card"></div>}
+      <motion.div
+        className="w-full h-full fixed bg-primary-accent"
+        transition={springConfig}
+        animate={{
+          clipPath: `ellipse(${ellipseX.get()}% 110% at ${clipPathX.get()}% ${clipPathY.get()}%)`,
+        }}
+      ></motion.div>
+      <motion.div
+        className="w-full h-full fixed bg-red-300"
+        transition={springConfig}
+        animate={{
+          clipPath: `ellipse(${ellipseX.get()}% 110% at ${
+            clipPathX.get() + 1
+          }% ${clipPathY.get()}%)`,
+        }}
+      ></motion.div>
+      <motion.div
+        className="w-full h-full fixed bg-blue-300"
+        transition={springConfig}
+        animate={{
+          clipPath: `ellipse(${ellipseX.get()}% 110% at ${
+            clipPathX.get() + 2
+          }% ${clipPathY.get()}%)`,
+        }}
+      ></motion.div>
+      <motion.div
+        className="w-full h-full fixed bg-card"
+        transition={springConfig}
+        animate={{
+          clipPath: `ellipse(${ellipseX.get()}% 110% at ${
+            clipPathX.get() + 3
+          }% ${clipPathY.get()}%)`,
+        }}
+      ></motion.div>
     </>
   );
 }
+
+const springConfig = {
+  type: 'spring',
+  bounce: 0,
+  stiffness: 100,
+  damping: 30,
+};

@@ -24,7 +24,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-background">
+      <body className="text-foreground bg-background">
         <NavigationOverlay />
         <Outlet />
         <ScrollRestoration />
