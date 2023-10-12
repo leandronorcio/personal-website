@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 export default {
   content: ['./app/**/*.{js,jsx,ts,tsx}'],
@@ -30,6 +31,10 @@ export default {
           'rgba(var(--destructive-foreground) / <alpha-value>)',
         border: 'rgba(var(--border) / <alpha-value>)',
         input: 'rgba(var(--input) / <alpha-value>)',
+      },
+      fontFamily: {
+        sans: ['"FiraSans"', ...defaultTheme.fontFamily.sans],
+        serif: ['"AntiqueOliveBold"', ...defaultTheme.fontFamily.serif],
       },
     },
   },

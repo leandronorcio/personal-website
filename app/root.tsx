@@ -9,9 +9,13 @@ import {
 } from '@remix-run/react';
 
 import stylesheet from '~/tailwind.css';
+import fonts from '~/fonts.css';
 import { NavigationOverlay } from './compnents/navigation-overlay';
+import { cssBundleHref } from '@remix-run/css-bundle';
 
 export const links: LinksFunction = () => [
+  ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
+  { rel: 'stylesheet', href: fonts },
   { rel: 'stylesheet', href: stylesheet },
 ];
 
@@ -24,7 +28,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="text-foreground bg-background">
+      <body className="font-sans text-foreground bg-background">
         <NavigationOverlay />
         <Outlet />
         <ScrollRestoration />
