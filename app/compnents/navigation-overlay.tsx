@@ -84,14 +84,16 @@ export function NavigationOverlay() {
         }}
       ></motion.div>
       <motion.div
-        className="w-full h-full fixed bg-card"
+        className="w-full h-full fixed bg-card flex justify-center items-center"
         transition={springConfig}
         animate={{
           clipPath: `ellipse(${ellipseX.get()}% 110% at ${
             clipPathX.get() + 3
           }% ${clipPathY.get()}%)`,
         }}
-      ></motion.div>
+      >
+        {<Menu />}
+      </motion.div>
     </>
   );
 }

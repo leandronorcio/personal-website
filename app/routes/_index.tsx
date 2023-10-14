@@ -1,4 +1,5 @@
 import type { MetaFunction } from '@remix-run/node';
+import { Menu } from '~/compnents/menu';
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,13 +10,12 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div>
-      <p className="font-serif text-5xl text-card-foreground">
-        Hello, I'm Leandro Norcio, a fullstack developer.
-      </p>
-      <p className="text-5xl">
-        Whereas disregard and contempt for human rights have resulted
-      </p>
+    <div className="text-5xl font-extrabold">
+      <div className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+        {'Hello World'.split('').map((letter, index) => (
+          <span key={index}>{letter}</span>
+        ))}
+      </div>
     </div>
   );
 }
