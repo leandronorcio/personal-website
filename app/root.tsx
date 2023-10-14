@@ -13,6 +13,7 @@ import fonts from '~/fonts.css';
 import { NavigationOverlay } from './compnents/navigation-overlay';
 import { cssBundleHref } from '@remix-run/css-bundle';
 import { ThemeContextProvider } from './contexts/theme-provider';
+import { MenuContextProvider } from './contexts/menu-provider';
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
@@ -31,8 +32,10 @@ export default function App() {
       </head>
       <body className="font-sans text-foreground bg-background">
         <ThemeContextProvider>
-          <NavigationOverlay />
-          <Outlet />
+          <MenuContextProvider>
+            <NavigationOverlay />
+            <Outlet />
+          </MenuContextProvider>
         </ThemeContextProvider>
         <ScrollRestoration />
         <Scripts />

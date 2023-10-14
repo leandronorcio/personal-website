@@ -1,10 +1,11 @@
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { useState } from 'react';
 import { cn } from '~/lib/cn';
 import { DarkModeSwitch } from './dark-mode-switch';
+import { Menu } from './menu';
+import { useMenu } from '~/hooks/useMenu';
 
 export function NavigationOverlay() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, setIsOpen } = useMenu();
   // 0 when closed, 1 when opened
   const motionValue = useMotionValue(0);
   const inputRange = [0, 1];
@@ -83,7 +84,7 @@ export function NavigationOverlay() {
         }}
       ></motion.div>
       <motion.div
-        className="w-full h-full fixed bg-accent-foreground"
+        className="w-full h-full fixed bg-card"
         transition={springConfig}
         animate={{
           clipPath: `ellipse(${ellipseX.get()}% 110% at ${
