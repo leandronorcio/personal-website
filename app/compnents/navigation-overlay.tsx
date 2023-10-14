@@ -30,43 +30,43 @@ export function NavigationOverlay() {
 
   return (
     <>
-      <div className="fixed top-6 right-8 sm:right-10 z-20 flex gap-4">
+      <div className="fixed right-8 top-6 z-20 flex gap-4 sm:right-10">
         <DarkModeSwitch />
         <button
           className={cn(
-            'w-[60px] h-[60px] rounded-full transition-all active:scale-90 relative',
+            'relative h-[60px] w-[60px] rounded-full transition-all active:scale-90',
             !isOpen
               ? 'bg-primary hover:bg-primary-accent'
-              : 'border-2 border-primary'
+              : 'border-2 border-primary',
           )}
           onClick={toggle}
           aria-label="Toggle navigation"
         >
           <div
             className={cn(
-              'h-1 w-6 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 transition-all',
+              'absolute left-1/2 top-1/2 h-1 w-6 -translate-x-1/2 rounded-full transition-all',
               isOpen ? '-translate-y-1/2 rotate-45' : '-translate-y-[150%]',
-              !isOpen ? 'bg-primary-foreground' : 'bg-destructive'
+              !isOpen ? 'bg-primary-foreground' : 'bg-destructive',
             )}
           ></div>
           <div
             className={cn(
-              'bg-primary-foreground h-1 w-6 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 transition-all',
+              'absolute left-1/2 top-1/2 h-1 w-6 -translate-x-1/2 rounded-full bg-primary-foreground transition-all',
               isOpen ? '-translate-y-1/2 -rotate-45' : 'translate-y-[100%]',
-              !isOpen ? 'bg-primary-foreground' : 'bg-destructive'
+              !isOpen ? 'bg-primary-foreground' : 'bg-destructive',
             )}
           ></div>
         </button>
       </div>
       <motion.div
-        className="w-full h-full fixed bg-primary-accent"
+        className="fixed h-full w-full bg-primary-accent"
         transition={springConfig}
         animate={{
           clipPath: `ellipse(${ellipseX.get()}% 110% at ${clipPathX.get()}% ${clipPathY.get()}%)`,
         }}
       ></motion.div>
       <motion.div
-        className="w-full h-full fixed bg-red-300"
+        className="fixed h-full w-full bg-red-300"
         transition={springConfig}
         animate={{
           clipPath: `ellipse(${ellipseX.get()}% 110% at ${
@@ -75,7 +75,7 @@ export function NavigationOverlay() {
         }}
       ></motion.div>
       <motion.div
-        className="w-full h-full fixed bg-blue-300"
+        className="fixed h-full w-full bg-blue-300"
         transition={springConfig}
         animate={{
           clipPath: `ellipse(${ellipseX.get()}% 110% at ${
@@ -84,7 +84,7 @@ export function NavigationOverlay() {
         }}
       ></motion.div>
       <motion.div
-        className="w-full h-full fixed bg-card flex justify-center items-center"
+        className="fixed flex h-full w-full items-center justify-center bg-card"
         transition={springConfig}
         animate={{
           clipPath: `ellipse(${ellipseX.get()}% 110% at ${

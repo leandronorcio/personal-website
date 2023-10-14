@@ -30,7 +30,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="font-sans text-foreground bg-background">
+      <body className="bg-background font-sans text-foreground">
         <ThemeContextProvider>
           <MenuContextProvider>
             <NavigationOverlay />

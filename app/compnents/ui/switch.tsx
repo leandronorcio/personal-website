@@ -24,7 +24,7 @@ export function Switch({ children, renderIcon, ...props }: SwitchProps) {
     <label
       className={cn(
         'flex cursor-pointer items-center',
-        props.isDisabled && 'opacity-40'
+        props.isDisabled && 'opacity-40',
       )}
     >
       <VisuallyHidden>
@@ -36,7 +36,7 @@ export function Switch({ children, renderIcon, ...props }: SwitchProps) {
           props.isSelected
             ? 'justify-end bg-primary-accent'
             : 'justify-start bg-muted',
-          isFocusVisible && 'ring-2 ring-violet-500 ring-offset-2'
+          isFocusVisible && 'ring-2 ring-violet-500 ring-offset-2',
         )}
       >
         <motion.div
@@ -44,7 +44,7 @@ export function Switch({ children, renderIcon, ...props }: SwitchProps) {
           transition={spring}
           className={cn(
             'grid h-8 w-8 place-items-center rounded-[200px]',
-            props.isSelected ? 'bg-primary-foreground' : 'bg-muted-foreground'
+            props.isSelected ? 'bg-primary-foreground' : 'bg-muted-foreground',
           )}
         >
           {renderIcon !== undefined && renderIcon()}
