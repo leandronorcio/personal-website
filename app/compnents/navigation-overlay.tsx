@@ -3,11 +3,12 @@ import { cn } from '~/lib/cn';
 import { DarkModeSwitch } from './dark-mode-switch';
 import { Menu } from './menu';
 import { useMenu } from '~/hooks/useMenu';
+import { useEffect } from 'react';
 
 export function NavigationOverlay() {
-  const { isOpen, setIsOpen } = useMenu();
+  const { isOpen, toggle } = useMenu();
   // 0 when closed, 1 when opened
-  const motionValue = useMotionValue(0);
+  const motionValue = useMotionValue(isOpen ? 1 : 0);
   const inputRange = [0, 1];
 
   const ellipseX = useTransform(motionValue, inputRange, [0, 100]);
@@ -16,17 +17,9 @@ export function NavigationOverlay() {
   const clipPathX = useTransform(motionValue, inputRange, [110, 50]);
   const clipPathY = useTransform(motionValue, inputRange, [0, 50]);
 
-  const toggle = () => {
-    setIsOpen((prev) => {
-      const newValue = !prev;
-      if (newValue) {
-        motionValue.set(1);
-      } else {
-        motionValue.set(0);
-      }
-      return newValue;
-    });
-  };
+  useEffect(() => {
+    motionValue.set(!isOpen ? 1 : 0);
+  }, [isOpen]);
 
   return (
     <>

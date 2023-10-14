@@ -2,12 +2,12 @@ import { createContext, useState } from 'react';
 
 interface MenuContext {
   isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  toggle: () => void;
 }
 
 export const MenuContext = createContext<MenuContext>({
   isOpen: false,
-  setIsOpen: () => {},
+  toggle: () => {},
 });
 
 export function MenuContextProvider({
@@ -16,9 +16,10 @@ export function MenuContextProvider({
   children: React.ReactNode;
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen((prev) => !prev);
 
   return (
-    <MenuContext.Provider value={{ isOpen, setIsOpen }}>
+    <MenuContext.Provider value={{ isOpen, toggle }}>
       {children}
     </MenuContext.Provider>
   );
