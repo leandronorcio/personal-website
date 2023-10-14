@@ -1,79 +1,56 @@
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { useMenu } from '~/hooks/useMenu';
-
-const items = [
-  {
-    title: 'home',
-  },
-  {
-    title: 'skills',
-  },
-  {
-    title: 'projects',
-  },
-  {
-    title: 'about',
-  },
-  {
-    title: 'contact',
-  },
-];
+import { MenuItem } from './menu-item';
 
 export function Menu() {
+  const [items, setItems] = useState<MenuItem[]>([
+    {
+      title: 'home',
+      route: '/',
+      isHovered: false,
+    },
+    {
+      title: 'projects',
+      route: '/projects',
+      isHovered: false,
+    },
+    {
+      title: 'about',
+      route: '/about',
+      isHovered: true,
+    },
+    {
+      title: 'contact',
+      route: '/contact',
+      isHovered: false,
+    },
+  ]);
+
   const { isOpen } = useMenu();
 
+  useEffect(() => {
+    // Reset `isHovered` state to false when opening the overlay
+    if (isOpen)
+      setItems((prev) => prev.map((item) => ({ ...item, isHovered: false })));
+  }, [isOpen]);
+
   return (
-    <ul className="font-serif text-foreground text-6xl flex flex-col gap-3 ">
+    <ul className="flex flex-col gap-3 font-serif text-6xl text-foreground ">
       <AnimatePresence>
         {isOpen
-          ? items.map(({ title }, i) => (
-              <MenuItem key={title} title={title} pos={i} />
+          ? items.map(({ title, isHovered, route }, i) => (
+              <MenuItem
+                title={title}
+                route={route}
+                isHovered={isHovered}
+                key={title}
+                setItems={setItems}
+                pos={i}
+              />
             ))
           : null}
       </AnimatePresence>
     </ul>
-  );
-}
-
-// Delay to wait for the navigation overlay's animation to finish
-const FADE_IN_DELAY = 0.19;
-const itemVariants: Variants = {
-  hidden: {
-    opacity: 0,
-  },
-  shown: {
-    opacity: 1,
-    transition: {
-      delay: FADE_IN_DELAY,
-      duration: 2,
-    },
-  },
-};
-const springConfig = { type: 'spring', stiffness: 300, damping: 30, mass: 2 };
-
-function MenuItem({ title, pos }: { title: string; pos: number }) {
-  return (
-    <motion.li
-      className="cursor-pointer flex"
-      variants={itemVariants}
-      initial="hidden"
-      animate="shown"
-      exit="hidden"
-    >
-      {title.split('').map((letter, i) => (
-        <motion.div
-          key={i}
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{
-            // Stagger each menu item then stagger each letter in the menu item
-            delay: FADE_IN_DELAY + pos * 0.05 + i * 0.05,
-            ...springConfig,
-          }}
-        >
-          {letter}
-        </motion.div>
-      ))}
-    </motion.li>
   );
 }
