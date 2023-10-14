@@ -12,6 +12,7 @@ import stylesheet from '~/tailwind.css';
 import fonts from '~/fonts.css';
 import { NavigationOverlay } from './compnents/navigation-overlay';
 import { cssBundleHref } from '@remix-run/css-bundle';
+import { ThemeContextProvider } from './contexts/theme-provider';
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
@@ -29,8 +30,10 @@ export default function App() {
         <Links />
       </head>
       <body className="font-sans text-foreground bg-background">
-        <NavigationOverlay />
-        <Outlet />
+        <ThemeContextProvider>
+          <NavigationOverlay />
+          <Outlet />
+        </ThemeContextProvider>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
