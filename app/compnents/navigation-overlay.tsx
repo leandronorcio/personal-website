@@ -27,10 +27,8 @@ export function NavigationOverlay() {
         <DarkModeSwitch />
         <button
           className={cn(
-            'transition-al relative h-[56px] w-[56px] rounded-full active:scale-90',
-            !isOpen
-              ? 'bg-primary hover:bg-primary-accent'
-              : 'border-2 border-primary',
+            'relative h-[56px] w-[56px] rounded-full transition-all hover:scale-105',
+            !isOpen ? 'bg-primary' : 'border-2 border-primary',
           )}
           onClick={toggle}
           aria-label="Toggle navigation"

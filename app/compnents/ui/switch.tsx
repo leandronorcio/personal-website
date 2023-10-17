@@ -23,7 +23,7 @@ export function Switch({ children, renderIcon, ...props }: SwitchProps) {
   return (
     <label
       className={cn(
-        'flex cursor-pointer items-center',
+        'flex cursor-pointer items-center transition-transform hover:scale-105',
         props.isDisabled && 'opacity-40',
       )}
     >
