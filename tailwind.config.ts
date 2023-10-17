@@ -33,8 +33,11 @@ export default {
         input: 'rgba(var(--input) / <alpha-value>)',
       },
       fontFamily: {
-        sans: ['"FiraSans"', ...defaultTheme.fontFamily.sans],
+        sans: ['"Gilroy"', ...defaultTheme.fontFamily.sans],
         serif: ['"AntiqueOliveBold"', ...defaultTheme.fontFamily.serif],
+      },
+      animation: {
+        wave: 'wave 1.5s ease-in-out 1s 2',
       },
     },
   },

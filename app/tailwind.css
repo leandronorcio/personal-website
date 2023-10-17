@@ -54,4 +54,29 @@
     --border: 57 49 75;
     --input: 57 49 75;
   }
+
+  @keyframes wave {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    40% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(30deg);
+    }
+    60% {
+      transform: rotate(-30deg);
+    }
+    70% {
+      transform: rotate(30deg);
+    }
+    80% {
+      transform: rotate(-30deg);
+    }
+    90% {
+      transform: rotate(30deg);
+    }
+  }
 }
