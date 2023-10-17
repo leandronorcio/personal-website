@@ -23,7 +23,7 @@ export function NavigationOverlay() {
 
   return (
     <>
-      <div className="fixed right-8 top-6 z-20 flex gap-4 sm:right-10">
+      <div className="fixed right-5 top-3 z-20 flex gap-3 sm:right-10 sm:gap-4">
         <DarkModeSwitch />
         <button
           className={cn(
