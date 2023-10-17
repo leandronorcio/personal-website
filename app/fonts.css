@@ -8,10 +8,10 @@
 }
 
 @font-face {
-  font-family: 'Gilroy';
+  font-family: 'Questrial';
   src:
-    url('./fonts/gilroy-regular-webfont.woff2') format('woff2'),
-    url('./fonts/gilroy-regular-webfont.woff') format('woff');
+    url('./fonts/questrial-regular-webfont.woff2') format('woff2'),
+    url('./fonts/questrial-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
