@@ -58,7 +58,7 @@ export function MenuItem({
               <motion.div
                 className={cn(
                   isActive &&
-                    'bg-gradient-to-r from-red-300/90 to-orange-300/90 bg-clip-text text-transparent',
+                    'bg-gradient-to-r from-destructive to-warning bg-clip-text text-transparent',
                 )}
                 key={i}
                 initial={{ x: 100 }}
