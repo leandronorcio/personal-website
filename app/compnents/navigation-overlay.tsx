@@ -27,7 +27,7 @@ export function NavigationOverlay() {
         <DarkModeSwitch />
         <button
           className={cn(
-            'relative h-[60px] w-[60px] rounded-full transition-all active:scale-90',
+            'transition-al relative h-[56px] w-[56px] rounded-full active:scale-90',
             !isOpen
               ? 'bg-primary hover:bg-primary-accent'
               : 'border-2 border-primary',
@@ -37,14 +37,14 @@ export function NavigationOverlay() {
         >
           <div
             className={cn(
-              'absolute left-1/2 top-1/2 h-1 w-6 -translate-x-1/2 rounded-full transition-all',
+              'absolute left-1/2 top-1/2 h-[3px] w-6 -translate-x-1/2 rounded-xl transition-all',
               isOpen ? '-translate-y-1/2 rotate-45' : '-translate-y-[150%]',
               !isOpen ? 'bg-primary-foreground' : 'bg-destructive',
             )}
           ></div>
           <div
             className={cn(
-              'absolute left-1/2 top-1/2 h-1 w-6 -translate-x-1/2 rounded-full bg-primary-foreground transition-all',
+              'absolute left-1/2 top-1/2 h-[3px] w-6 -translate-x-1/2 rounded-xl bg-primary-foreground transition-all',
               isOpen ? '-translate-y-1/2 -rotate-45' : 'translate-y-[100%]',
               !isOpen ? 'bg-primary-foreground' : 'bg-destructive',
             )}
