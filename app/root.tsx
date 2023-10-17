@@ -10,7 +10,7 @@ import {
 
 import stylesheet from '~/tailwind.css';
 import fonts from '~/fonts.css';
-import { NavigationOverlay } from './compnents/navigation-overlay';
+import { NavigationOverlay } from './components/navigation-overlay';
 import { cssBundleHref } from '@remix-run/css-bundle';
 import { ThemeContextProvider } from './contexts/theme-provider';
 import { MenuContextProvider } from './contexts/menu-provider';
