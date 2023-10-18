@@ -13,7 +13,7 @@ export default function MeIntro() {
           className="absolute left-1/2 top-1/2 z-10 h-[140px] w-[140px] -translate-x-1/2 -translate-y-1/2 rounded-full"
         />
       </div>
-      <div className="flex flex-col items-start justify-center">
+      <div className="flex flex-col items-center justify-center sm:items-start">
         <h1 className="font-sans text-2xl text-card-foreground">
           Hi{' '}
           <span className="relative z-[-1] inline-block animate-wave">👋🏻</span>{' '}
