@@ -30,11 +30,15 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-background font-sans text-foreground">
+      <body className="flex h-screen flex-col bg-background font-sans text-foreground">
         <ThemeContextProvider>
           <MenuContextProvider>
-            <NavigationOverlay />
-            <Outlet />
+            <div className="flex justify-end border-b border-border px-4 py-4">
+              <NavigationOverlay />
+            </div>
+            <div className="flex-1 overflow-y-auto">
+              <Outlet />
+            </div>
           </MenuContextProvider>
         </ThemeContextProvider>
         <ScrollRestoration />

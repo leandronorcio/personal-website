@@ -46,7 +46,7 @@ function SkillsSection({
       <Header>{header}</Header>
       <div className="mb-2 mt-1 flex flex-wrap gap-1">
         {skills.map((item) => (
-          <Badge>{item}</Badge>
+          <Badge key={item}>{item}</Badge>
         ))}
       </div>
     </>
