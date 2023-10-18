@@ -23,7 +23,7 @@ export default function MeIntro() {
         <h1 className="font-sans text-3xl text-foreground sm:text-5xl">
           Full Stack Developer
         </h1>
-        <div className="mt-3 flex items-center gap-3">
+        <div className="mt-3 flex items-center gap-2 sm:gap-3">
           <ButtonPrimary>Contact me</ButtonPrimary>
           <ButtonOutline>Resume</ButtonOutline>
           <a
