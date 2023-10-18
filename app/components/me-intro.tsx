@@ -1,3 +1,4 @@
+import { Github, Linkedin, Twitter } from 'lucide-react';
 import myPicture from '../photos/me.png';
 import { ButtonOutline } from './ui/button-outline';
 import { ButtonPrimary } from './ui/button-primary';
@@ -22,9 +23,30 @@ export default function MeIntro() {
         <h1 className="font-sans text-3xl text-foreground sm:text-5xl">
           Full Stack Developer
         </h1>
-        <div className="mt-3 flex gap-3">
+        <div className="mt-3 flex items-center gap-3">
           <ButtonPrimary>Contact me</ButtonPrimary>
           <ButtonOutline>Resume</ButtonOutline>
+          <a
+            aria-label="My Github"
+            title="My Github"
+            className="group block cursor-pointer"
+          >
+            <Github className="stroke-muted-foreground group-hover:stroke-foreground" />
+          </a>
+          <a
+            aria-label="My LinkedIn"
+            title="My LinkedIn"
+            className="group block cursor-pointer"
+          >
+            <Linkedin className="stroke-muted-foreground group-hover:stroke-foreground" />
+          </a>
+          <a
+            aria-label="My Twitter"
+            title="My Twitter"
+            className="group block cursor-pointer"
+          >
+            <Twitter className="stroke-muted-foreground group-hover:stroke-foreground" />
+          </a>
         </div>
       </div>
     </div>
