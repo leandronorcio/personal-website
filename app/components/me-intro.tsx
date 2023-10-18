@@ -1,4 +1,6 @@
 import myPicture from '../photos/me.png';
+import { ButtonOutline } from './ui/button-outline';
+import { ButtonPrimary } from './ui/button-primary';
 
 export default function MeIntro() {
   return (
@@ -12,14 +14,18 @@ export default function MeIntro() {
         />
       </div>
       <div className="flex flex-col items-start justify-center">
-        <h1 className="font-sans text-2xl font-bold text-card-foreground">
+        <h1 className="font-sans text-2xl text-card-foreground">
           Hi{' '}
           <span className="relative z-[-1] inline-block animate-wave">👋🏻</span>{' '}
           I'm Leandro Norcio
         </h1>
-        <h1 className="font-sans text-3xl font-bold text-foreground sm:text-5xl">
+        <h1 className="font-sans text-3xl text-foreground sm:text-5xl">
           Full Stack Developer
         </h1>
+        <div className="mt-3 flex gap-3">
+          <ButtonPrimary>Contact me</ButtonPrimary>
+          <ButtonOutline>Resume</ButtonOutline>
+        </div>
       </div>
     </div>
   );

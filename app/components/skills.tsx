@@ -19,9 +19,9 @@ const backEndSkills = [
   'OpenID Connect',
   'EC2',
   'S3',
-  'Basic DNS Management',
+  'DNS Management',
 ];
-const tools = ['Node', 'Git', 'Linux', 'VSCode'];
+const tools = ['Node.js', 'Git', 'Linux', 'VSCode'];
 
 export function Skills() {
   return (

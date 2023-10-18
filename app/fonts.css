@@ -8,10 +8,21 @@
 }
 
 @font-face {
-  font-family: 'Questrial';
+  font-family: 'TTNorms';
   src:
-    url('./fonts/questrial-regular-webfont.woff2') format('woff2'),
-    url('./fonts/questrial-regular-webfont.woff') format('woff');
+    url('./fonts/ttnorms-regular-webfont.woff2') format('woff2'),
+    url('./fonts/ttnorms-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TTNorms';
+  src:
+    url('./fonts/ttnorms-bold-webfont.woff2') format('woff2'),
+    url('./fonts/ttnorms-bold-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
