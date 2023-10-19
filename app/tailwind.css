@@ -99,4 +99,16 @@
       transform: rotate(30deg);
     }
   }
+
+  @keyframes rotateAndScale {
+    0% {
+      transform: rotate(0deg) scale(1, 1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1, 1.5);
+    }
+    100% {
+      transform: rotate(360deg) scale(1, 1);
+    }
+  }
 }

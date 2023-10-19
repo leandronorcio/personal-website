@@ -14,6 +14,8 @@ import { NavigationOverlay } from './components/navigation-overlay';
 import { cssBundleHref } from '@remix-run/css-bundle';
 import { ThemeContextProvider } from './contexts/theme-provider';
 import { MenuContextProvider } from './contexts/menu-provider';
+import { MousePositionContextProvider } from './contexts/mouse-position-provider';
+import { FullPageMouseEffect } from './components/full-page-mouse-effect';
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
@@ -32,14 +34,17 @@ export default function App() {
       </head>
       <body className="flex h-screen flex-col bg-background font-sans text-foreground">
         <ThemeContextProvider>
-          <MenuContextProvider>
-            <div className="flex justify-end border-b border-border px-4 py-4">
-              <NavigationOverlay />
-            </div>
-            <div className="flex-1 overflow-y-auto">
-              <Outlet />
-            </div>
-          </MenuContextProvider>
+          <MousePositionContextProvider>
+            <MenuContextProvider>
+              <FullPageMouseEffect />
+              <div className="flex justify-end border-b border-border px-4 py-4">
+                <NavigationOverlay />
+              </div>
+              <div className="flex-1 overflow-y-auto">
+                <Outlet />
+              </div>
+            </MenuContextProvider>
+          </MousePositionContextProvider>
         </ThemeContextProvider>
         <ScrollRestoration />
         <Scripts />

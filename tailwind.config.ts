@@ -38,6 +38,7 @@ export default {
       },
       animation: {
         wave: 'wave 1.5s ease-in-out 0 2',
+        'rotate-and-scale': 'rotateAndScale 4s linear infinite',
       },
     },
   },
