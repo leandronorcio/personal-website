@@ -1,26 +1,9 @@
+import { Header } from '~/components/ui/header';
+
 export default function Projects() {
   return (
-    <div>
-      <h1 className="text-5xl">Projects1</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
-      <h1 className="text-5xl">Projects</h1>
+    <div className="my-5 px-5">
+      <Header className="text-3xl">Projects</Header>
     </div>
   );
 }

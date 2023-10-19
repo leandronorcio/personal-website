@@ -25,7 +25,7 @@ const tools = ['Node.js', 'Git', 'Linux', 'VSCode'];
 
 export function Skills() {
   return (
-    <div className="flex flex-col items-start gap-2">
+    <div className="flex flex-col gap-3 sm:gap-4">
       <SkillsSection header="Languages" skills={languages} />
       <SkillsSection header="Frontend Skills" skills={frontEndSkills} />
       <SkillsSection header="Backend Skills" skills={backEndSkills} />
@@ -42,13 +42,13 @@ function SkillsSection({
   skills: string[];
 }) {
   return (
-    <>
-      <Header>{header}</Header>
-      <div className="mb-2 mt-1 flex flex-wrap gap-1">
+    <div>
+      <Header className="text-xl sm:text-2xl">{header}</Header>
+      <div className="mt-2 flex flex-wrap gap-1">
         {skills.map((item) => (
           <Badge key={item}>{item}</Badge>
         ))}
       </div>
-    </>
+    </div>
   );
 }
