@@ -27,7 +27,7 @@ export function NavigationOverlay() {
         <DarkModeSwitch />
         <button
           className={cn(
-            'relative z-20 h-[56px] w-[56px] rounded-full transition-all hover:scale-105',
+            'relative z-30 h-[56px] w-[56px] rounded-full transition-all hover:scale-105',
             !isOpen ? 'bg-primary' : 'border-2 border-primary',
           )}
           onClick={toggle}
@@ -50,14 +50,14 @@ export function NavigationOverlay() {
         </button>
       </div>
       <motion.div
-        className="fixed left-0 top-0 h-screen w-screen bg-primary-accent"
+        className="fixed left-0 top-0 z-20 h-screen w-screen bg-primary-accent"
         transition={springConfig}
         animate={{
           clipPath: `ellipse(${ellipseX.get()}% 110% at ${clipPathX.get()}% ${clipPathY.get()}%)`,
         }}
       ></motion.div>
       <motion.div
-        className="fixed left-0 top-0 h-screen w-screen bg-red-300"
+        className="fixed left-0 top-0 z-20 h-screen w-screen bg-red-300"
         transition={springConfig}
         animate={{
           clipPath: `ellipse(${ellipseX.get()}% 110% at ${
@@ -66,7 +66,7 @@ export function NavigationOverlay() {
         }}
       ></motion.div>
       <motion.div
-        className="fixed left-0 top-0 h-screen w-screen bg-blue-300"
+        className="fixed left-0 top-0 z-20 h-screen w-screen bg-blue-300"
         transition={springConfig}
         animate={{
           clipPath: `ellipse(${ellipseX.get()}% 110% at ${
@@ -75,7 +75,7 @@ export function NavigationOverlay() {
         }}
       ></motion.div>
       <motion.div
-        className="fixed left-0 top-0 flex h-screen w-screen items-center justify-center bg-card"
+        className="fixed left-0 top-0 z-20 flex h-screen w-screen items-center justify-center bg-card"
         transition={springConfig}
         animate={{
           clipPath: `ellipse(${ellipseX.get()}% 110% at ${

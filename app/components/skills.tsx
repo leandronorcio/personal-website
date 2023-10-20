@@ -1,4 +1,5 @@
 import { Badge } from './ui/badge';
+import { CardContainer } from './ui/card-container';
 import { Header } from './ui/header';
 
 const languages = ['TypeScript', 'JavaScript', 'CSS', 'HTML', 'Python'];
@@ -42,13 +43,13 @@ function SkillsSection({
   skills: string[];
 }) {
   return (
-    <div>
+    <CardContainer>
       <Header className="text-xl sm:text-2xl">{header}</Header>
-      <div className="mt-2 flex flex-wrap gap-1">
+      <div className="mt-3 flex flex-wrap gap-1">
         {skills.map((item) => (
           <Badge key={item}>{item}</Badge>
         ))}
       </div>
-    </div>
+    </CardContainer>
   );
 }

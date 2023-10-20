@@ -12,7 +12,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div className="my-5 flex flex-col items-center justify-center gap-4 px-5">
-      <div className="flex flex-col gap-6 sm:gap-10">
+      <div className="flex max-w-2xl flex-col gap-6 sm:gap-8">
         <MeIntro />
         <Skills />
       </div>

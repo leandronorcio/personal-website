@@ -9,7 +9,7 @@ export function Header({ children, ...rest }: HeaderProps) {
       <div>
         <h1 className={cn('font-serif', rest.className)}>{children}</h1>
         <div
-          className="relative -z-10 h-2 rounded-xl bg-primary transition-transform"
+          className="h-2 rounded-xl bg-primary transition-transform"
           style={{
             clipPath: 'polygon(100% 20%, 0% 80%, 100% 100%)',
           }}
