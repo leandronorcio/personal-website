@@ -1,5 +1,5 @@
 import { Badge } from '~/components/ui/badge';
-import { ButtonOutline } from '~/components/ui/button-outline';
+import { ButtonSecondary } from '~/components/ui/button-secondary';
 import { ButtonPrimary } from '~/components/ui/button-primary';
 import { CardContainer } from '~/components/ui/card-container';
 import { Header } from '~/components/ui/header';
@@ -28,7 +28,7 @@ export default function Projects() {
           <div className="mt-4 flex gap-4">
             <ButtonPrimary>Play Store</ButtonPrimary>
             <ButtonPrimary>App Store</ButtonPrimary>
-            <ButtonOutline>Website</ButtonOutline>
+            <ButtonSecondary>Website</ButtonSecondary>
           </div>
         </CardContainer>
         <CardContainer className="mt-6" numberOfBoxPerLine={5}>
@@ -50,7 +50,7 @@ export default function Projects() {
           <div className="mt-4 flex gap-4">
             <ButtonPrimary>Play Store</ButtonPrimary>
             <ButtonPrimary>App Store</ButtonPrimary>
-            <ButtonOutline>Website</ButtonOutline>
+            <ButtonSecondary>Website</ButtonSecondary>
           </div>
         </CardContainer>
         <CardContainer className="mt-6" numberOfBoxPerLine={5}>
@@ -72,7 +72,7 @@ export default function Projects() {
           <div className="mt-4 flex gap-4">
             <ButtonPrimary>Play Store</ButtonPrimary>
             <ButtonPrimary>App Store</ButtonPrimary>
-            <ButtonOutline>Website</ButtonOutline>
+            <ButtonSecondary>Website</ButtonSecondary>
           </div>
         </CardContainer>
       </div>

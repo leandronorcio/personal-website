@@ -1,6 +1,5 @@
 import { Github, Linkedin, Twitter } from 'lucide-react';
-import myPicture from '../photos/me.png';
-import { ButtonOutline } from './ui/button-outline';
+import { ButtonSecondary } from './ui/button-secondary';
 import { ButtonPrimary } from './ui/button-primary';
 
 export default function MeIntro() {
@@ -19,33 +18,21 @@ export default function MeIntro() {
           Hi <span className="inline-block animate-wave">👋🏻</span> I'm Leandro
           Norcio
         </h1>
-        <h1 className="font-sans text-3xl text-foreground sm:text-5xl">
+        <h1 className="font-serif text-3xl text-foreground sm:text-4xl">
           Full Stack Developer
         </h1>
         <div className="mt-3 flex items-center gap-2 sm:gap-3">
           <ButtonPrimary>Contact me</ButtonPrimary>
-          <ButtonOutline>Resume</ButtonOutline>
-          <a
-            aria-label="My Github"
-            title="My Github"
-            className="group block cursor-pointer"
-          >
-            <Github className="stroke-muted-foreground group-hover:stroke-foreground" />
-          </a>
-          <a
-            aria-label="My LinkedIn"
-            title="My LinkedIn"
-            className="group block cursor-pointer"
-          >
-            <Linkedin className="stroke-muted-foreground group-hover:stroke-foreground" />
-          </a>
-          <a
-            aria-label="My Twitter"
-            title="My Twitter"
-            className="group block cursor-pointer"
-          >
-            <Twitter className="stroke-muted-foreground group-hover:stroke-foreground" />
-          </a>
+          <ButtonSecondary>Resume</ButtonSecondary>
+          <ButtonSecondary>
+            <Github className="stroke-foreground group-hover:stroke-foreground" />
+          </ButtonSecondary>
+          <ButtonSecondary>
+            <Twitter className="stroke-foreground group-hover:stroke-foreground" />
+          </ButtonSecondary>
+          <ButtonSecondary>
+            <Linkedin className="stroke-foreground group-hover:stroke-foreground" />
+          </ButtonSecondary>
         </div>
       </div>
     </div>
