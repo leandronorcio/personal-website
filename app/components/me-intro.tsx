@@ -25,13 +25,13 @@ export default function MeIntro() {
           <ButtonPrimary>Contact me</ButtonPrimary>
           <ButtonSecondary>Resume</ButtonSecondary>
           <ButtonSecondary>
-            <Github className="stroke-foreground group-hover:stroke-foreground" />
+            <Github className="h-5 w-5 stroke-foreground group-hover:stroke-foreground" />
           </ButtonSecondary>
           <ButtonSecondary>
-            <Twitter className="stroke-foreground group-hover:stroke-foreground" />
+            <Twitter className="h-5 w-5 stroke-foreground group-hover:stroke-foreground" />
           </ButtonSecondary>
           <ButtonSecondary>
-            <Linkedin className="stroke-foreground group-hover:stroke-foreground" />
+            <Linkedin className="h-5 w-5 stroke-foreground group-hover:stroke-foreground" />
           </ButtonSecondary>
         </div>
       </div>
