@@ -82,7 +82,7 @@ export function MenuItem({
           )}
 
           {/* Passing underline hover effect. */}
-          <motion.div className="mt-1 h-1 origin-right scale-x-0 bg-accent-foreground transition-transform group-hover:origin-left group-hover:scale-x-100"></motion.div>
+          <div className="mt-1 h-1 origin-right scale-x-0 bg-accent-foreground transition-transform duration-500 group-hover:origin-left group-hover:scale-x-100"></div>
         </motion.li>
       )}
     </NavLink>
