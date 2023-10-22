@@ -1,12 +1,13 @@
 import { resizeTextAreaHeight } from '~/lib/resizeTextAreaHeight';
 import { mergeProps, useObjectRef } from '@react-aria/utils';
-import { FormEvent, SVGProps, forwardRef } from 'react';
+import { FormEvent, forwardRef } from 'react';
 import { AriaTextFieldProps, useTextField } from 'react-aria';
 import { cn } from '~/lib/cn';
+import { LucideIcon } from 'lucide-react';
 
 interface TextareaProps extends AriaTextFieldProps {
   className?: string;
-  Icon?: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+  Icon?: LucideIcon;
 }
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
@@ -73,18 +74,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           >
             {label}
           </label>
-          {/* <Button
-            Icon={(props) => (
-              <SvgClose
-                className={cn(props.className, 'stroke-muted-foreground')}
-              />
-            )}
-            mode="ghost"
-            size="small"
-            onPress={clear}
-            className="absolute right-5 top-[50%] z-[1] block translate-y-[-50%] peer-placeholder-shown:hidden"
-            aria-label="Clear"
-          /> */}
         </div>
         {isError && (
           <p

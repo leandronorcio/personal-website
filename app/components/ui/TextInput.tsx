@@ -1,11 +1,12 @@
 import { useObjectRef } from '@react-aria/utils';
-import { SVGProps, forwardRef } from 'react';
+import { LucideIcon } from 'lucide-react';
+import { forwardRef } from 'react';
 import { AriaTextFieldProps, useTextField } from 'react-aria';
 import { cn } from '~/lib/cn';
 
 interface TextInputProps extends AriaTextFieldProps {
   className?: string;
-  Icon?: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+  Icon?: LucideIcon;
 }
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   ({ className, Icon, ...props }, forwardedRef) => {
@@ -63,18 +64,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           >
             {label}
           </label>
-          {/* <Button
-            Icon={(props) => (
-              <SvgClose
-                className={cn(props.className, 'stroke-muted-foreground')}
-              />
-            )}
-            mode="ghost"
-            size="small"
-            onPress={clear}
-            className="absolute right-5 top-[50%] z-[1] block translate-y-[-50%] peer-placeholder-shown:hidden"
-            aria-label="Clear"
-          /> */}
         </div>
         {isError && (
           <p
