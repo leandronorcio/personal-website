@@ -16,13 +16,13 @@ import {
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AtSign, Mail, User } from 'lucide-react';
 import { ActionFunctionArgs } from '@remix-run/node';
-import { useSubmit } from '@remix-run/react';
+import { useActionData, useSubmit, useNavigate } from '@remix-run/react';
 import {
   isRouteErrorResponse,
-  json,
   useNavigation,
   useRouteError,
 } from 'react-router';
+import { sendEmailToMyself } from '~/lib/sendEmailToMyself';
 
 const nonEmptyString = z
   .string()
@@ -41,7 +41,6 @@ const defaultValues = {
 };
 
 export async function action({ request }: ActionFunctionArgs) {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
   const body = await request.formData();
 
   const data = Object.fromEntries(body);
@@ -51,11 +50,25 @@ export async function action({ request }: ActionFunctionArgs) {
     });
   }
 
-  console.log(data);
+  try {
+    await sendEmailToMyself(
+      'Personal Website Received a Message',
+      `Sender: ${data.name} (${data.email})
+Message: ${data.message}`,
+    );
+  } catch (error) {
+    console.log(error);
+    throw new Response(JSON.stringify({ error: 'Unable to send message' }), {
+      status: 500,
+    });
+  }
+
   return true;
 }
+
 export function ErrorBoundary() {
   const error = useRouteError();
+  const navigate = useNavigate();
 
   return (
     <PageContainer>
@@ -75,8 +88,8 @@ export function ErrorBoundary() {
         <Header className="text-2xl">Unknown Error</Header>
       )}
       <p className="text-lg text-muted-foreground">
-        Whoops! We encountered an error while processing your request. You may
-        go back and try again.
+        Whoops! We encountered an error while processing your request. You may{' '}
+        <A onClick={() => navigate(-1)}>go back</A> and try again.
       </p>
     </PageContainer>
   );
@@ -87,6 +100,7 @@ export default function Contact() {
     resolver: zodResolver(contactFormSchema),
     defaultValues,
   });
+  const isSuccessful = useActionData<typeof action>(); // `true` if the `action` is successful
   const submit = useSubmit();
   const { formAction, state } = useNavigation();
   const isSubmitting = formAction === `/contact` && state === 'submitting';
@@ -129,86 +143,96 @@ export default function Contact() {
           </A>
         </span>
       </p>
-      <CardContainer className="mt-5">
-        <Header className="text-2xl">Contact Form</Header>
-        <p className="mt-2 text-lg text-muted-foreground">
-          You can directly send me an email me at{' '}
-          <A href="mailto:leandro@norcio.dev" title="My email address">
-            leandro@norcio.dev
-          </A>{' '}
-          , or use this form .
-        </p>
-        <form
-          onSubmit={handleSubmit(onValid, onInValid)}
-          className="mt-3 flex w-full flex-col gap-3"
-        >
-          <div className="flex gap-3">
-            <div className="flex-1">
-              <Controller
-                control={control}
-                name="name"
-                render={({
-                  field: { onChange, ref, value },
-                  fieldState: { error },
-                }) => (
-                  <TextInput
-                    label="Name"
-                    value={value}
-                    onChange={(value) => onChange(value)}
-                    errorMessage={error?.message}
-                    ref={ref}
-                    Icon={User}
-                  />
-                )}
-              />
+      {!isSuccessful ? (
+        <CardContainer className="mt-5">
+          <Header className="text-2xl">Contact Form</Header>
+          <p className="mt-2 text-lg text-muted-foreground">
+            You can directly send me an email me at{' '}
+            <A href="mailto:leandro@norcio.dev" title="My email address">
+              leandro@norcio.dev
+            </A>{' '}
+            , or use this form.
+          </p>
+          <form
+            onSubmit={handleSubmit(onValid, onInValid)}
+            className="mt-3 flex w-full flex-col gap-3"
+          >
+            <div className="flex gap-3">
+              <div className="flex-1">
+                <Controller
+                  control={control}
+                  name="name"
+                  render={({
+                    field: { onChange, ref, value },
+                    fieldState: { error },
+                  }) => (
+                    <TextInput
+                      label="Name"
+                      value={value}
+                      onChange={(value) => onChange(value)}
+                      errorMessage={error?.message}
+                      ref={ref}
+                      Icon={User}
+                    />
+                  )}
+                />
+              </div>
+              <div className="flex-1">
+                <Controller
+                  control={control}
+                  name="email"
+                  render={({
+                    field: { onChange, ref, value },
+                    fieldState: { error },
+                  }) => (
+                    <TextInput
+                      label="Email address"
+                      value={value}
+                      onChange={(value) => onChange(value)}
+                      errorMessage={error?.message}
+                      ref={ref}
+                      Icon={AtSign}
+                    />
+                  )}
+                />
+              </div>
             </div>
-            <div className="flex-1">
-              <Controller
-                control={control}
-                name="email"
-                render={({
-                  field: { onChange, ref, value },
-                  fieldState: { error },
-                }) => (
-                  <TextInput
-                    label="Email address"
-                    value={value}
-                    onChange={(value) => onChange(value)}
-                    errorMessage={error?.message}
-                    ref={ref}
-                    Icon={AtSign}
-                  />
-                )}
-              />
+            <Controller
+              control={control}
+              name="message"
+              render={({
+                field: { onChange, ref, value },
+                fieldState: { error },
+              }) => (
+                <Textarea
+                  label="Message"
+                  value={value}
+                  onChange={(value) => onChange(value)}
+                  errorMessage={error?.message}
+                  ref={ref}
+                  Icon={Mail}
+                />
+              )}
+            />
+            <div className="flex gap-3 self-end">
+              <ButtonSecondary type="button" onClick={() => reset()}>
+                Reset
+              </ButtonSecondary>
+              <ButtonPrimary type="submit" disabled={isSubmitting}>
+                {isSubmitting ? 'Loading...' : 'Submit'}
+              </ButtonPrimary>
             </div>
-          </div>
-          <Controller
-            control={control}
-            name="message"
-            render={({
-              field: { onChange, ref, value },
-              fieldState: { error },
-            }) => (
-              <Textarea
-                label="Message"
-                value={value}
-                onChange={(value) => onChange(value)}
-                errorMessage={error?.message}
-                ref={ref}
-                Icon={Mail}
-              />
-            )}
-          />
-          <div className="flex gap-3 self-end">
-            <ButtonSecondary type="button" onClick={() => reset()}>
-              Reset
-            </ButtonSecondary>
-            <ButtonPrimary type="submit" disabled={isSubmitting}>
-              {isSubmitting ? 'Loading...' : 'Submit'}
-            </ButtonPrimary>
-          </div>
-        </form>
-      </CardContainer>
+          </form>
+        </CardContainer>
+      ) : (
+        <CardContainer className="mt-5">
+          <Header className="text-2xl">Message Sent</Header>
+          <p className="mt-2 text-lg text-muted-foreground">
+            Your message has been successfully sent, expect a reply from me
+            within the next 12 hours.
+          </p>
+        </CardContainer>
+      )}
     </PageContainer>
   );
 }
