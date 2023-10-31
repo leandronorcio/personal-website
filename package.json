@@ -6,7 +6,7 @@
   "scripts": {
     "build": "remix build",
     "dev": "remix dev --manual",
-    "start": "remix-serve ./build/index.js",
+    "start": "dotenv -e .env remix-serve ./build/index.js",
     "typecheck": "tsc"
   },
   "dependencies": {
