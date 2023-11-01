@@ -1,6 +1,6 @@
 import { PageContainer } from '~/components/page-container';
-import { TextInput } from '~/components/ui/textinput';
-import { Textarea } from '~/components/ui/textarea';
+import { TextInput } from '~/components/ui/text-input';
+import { Textarea } from '~/components/ui/text-area';
 import { A } from '~/components/ui/a';
 import { ButtonPrimary } from '~/components/ui/button-primary';
 import { ButtonSecondary } from '~/components/ui/button-secondary';
