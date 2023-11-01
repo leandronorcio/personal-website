@@ -26,7 +26,7 @@ const tools = ['Node.js', 'Git', 'Linux', 'VSCode'];
 
 export function Skills() {
   return (
-    <div className="flex flex-col gap-3 sm:gap-4">
+    <div className="mt-5 flex flex-col gap-3 sm:gap-4">
       <SkillsSection header="Languages" skills={languages} />
       <SkillsSection header="Frontend Skills" skills={frontEndSkills} />
       <SkillsSection header="Backend Skills" skills={backEndSkills} />

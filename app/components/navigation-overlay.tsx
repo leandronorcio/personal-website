@@ -23,11 +23,11 @@ export function NavigationOverlay() {
 
   return (
     <>
-      <div className="flex items-center gap-3 sm:right-10 sm:gap-4">
+      <div className="fixed top-0 z-30 flex w-full items-center justify-end gap-3 border-b border-border bg-card/30 p-4 backdrop-blur sm:gap-4">
         <DarkModeSwitch />
         <button
           className={cn(
-            'relative z-30 h-[56px] w-[56px] rounded-full transition-all hover:scale-105',
+            'relative z-40 h-[56px] w-[56px] rounded-full transition-all hover:scale-105',
             !isOpen ? 'bg-primary' : 'border-2 border-primary',
           )}
           onClick={toggle}

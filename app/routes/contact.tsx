@@ -1,6 +1,6 @@
 import { PageContainer } from '~/components/page-container';
-import { TextInput } from '~/components/ui/TextInput';
-import { Textarea } from '~/components/ui/Textarea';
+import { TextInput } from '~/components/ui/textinput';
+import { Textarea } from '~/components/ui/textarea';
 import { A } from '~/components/ui/a';
 import { ButtonPrimary } from '~/components/ui/button-primary';
 import { ButtonSecondary } from '~/components/ui/button-secondary';
@@ -157,7 +157,7 @@ export default function Contact() {
             onSubmit={handleSubmit(onValid, onInValid)}
             className="mt-3 flex w-full flex-col gap-3"
           >
-            <div className="flex gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row">
               <div className="flex-1">
                 <Controller
                   control={control}
@@ -169,7 +169,7 @@ export default function Contact() {
                     <TextInput
                       label="Name"
                       value={value}
-                      onChange={(value) => onChange(value)}
+                      onChange={(val) => onChange(val)}
                       errorMessage={error?.message}
                       ref={ref}
                       Icon={User}
@@ -188,7 +188,7 @@ export default function Contact() {
                     <TextInput
                       label="Email address"
                       value={value}
-                      onChange={(value) => onChange(value)}
+                      onChange={(val) => onChange(val)}
                       errorMessage={error?.message}
                       ref={ref}
                       Icon={AtSign}
@@ -207,7 +207,7 @@ export default function Contact() {
                 <Textarea
                   label="Message"
                   value={value}
-                  onChange={(value) => onChange(value)}
+                  onChange={(val) => onChange(val)}
                   errorMessage={error?.message}
                   ref={ref}
                   Icon={Mail}

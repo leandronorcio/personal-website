@@ -21,7 +21,7 @@ export function FullPageMouseEffect() {
         filter: 'blur(170px)',
       }}
     >
-      <motion.div className="animate-rotate-and-scale h-full w-full rounded-full bg-gradient-to-r from-pink-800 to-blue-800 opacity-70"></motion.div>
+      <div className="h-full w-full animate-rotate-and-scale rounded-full bg-gradient-to-r from-pink-800 to-blue-800 opacity-70"></div>
     </motion.div>
   );
 }

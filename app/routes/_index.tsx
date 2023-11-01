@@ -1,5 +1,6 @@
 import type { MetaFunction } from '@remix-run/node';
 import MeIntro from '~/components/me-intro';
+import { PageContainer } from '~/components/page-container';
 import { Skills } from '~/components/skills';
 
 export const meta: MetaFunction = () => {
@@ -11,11 +12,9 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="my-5 flex flex-col items-center justify-center gap-4 px-5">
-      <div className="flex max-w-2xl flex-col gap-6 sm:gap-8">
-        <MeIntro />
-        <Skills />
-      </div>
-    </div>
+    <PageContainer>
+      <MeIntro />
+      <Skills />
+    </PageContainer>
   );
 }
