@@ -1,4 +1,5 @@
 import type { MetaFunction } from '@remix-run/node';
+import { PrefetchPageLinks } from '@remix-run/react';
 import MeIntro from '~/components/me-intro';
 import { PageContainer } from '~/components/page-container';
 import { Skills } from '~/components/skills';
@@ -19,6 +20,9 @@ export default function Index() {
     <PageContainer>
       <MeIntro />
       <Skills />
+      <PrefetchPageLinks page="/projects" />
+      <PrefetchPageLinks page="/about" />
+      <PrefetchPageLinks page="/contact" />
     </PageContainer>
   );
 }
