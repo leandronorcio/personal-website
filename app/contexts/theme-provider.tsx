@@ -12,14 +12,6 @@ export function ThemeContextProvider({
 }) {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
-  useEffect(() => {
-    const storageDarkmode = localStorage.getItem('isDarkMode');
-    const isDark = storageDarkmode === 'true' || storageDarkmode === null;
-
-    setDarkClass(isDark);
-    setIsDarkMode(isDark);
-  }, []);
-
   const setDarkClass = (isSelected: boolean) => {
     if (isSelected) {
       document.documentElement.classList.add('dark');
@@ -34,6 +26,14 @@ export function ThemeContextProvider({
     localStorage.setItem('isDarkMode', isSelected ? 'true' : 'false');
     setIsDarkMode(isSelected);
   };
+
+  useEffect(() => {
+    const storageDarkmode = localStorage.getItem('isDarkMode');
+    const isDark = storageDarkmode === 'true' || storageDarkmode === null;
+
+    setDarkClass(isDark);
+    setIsDarkMode(isDark);
+  }, [setDarkClass, setIsDarkMode]);
 
   return (
     <ThemeContext.Provider value={{ isDarkMode, handleThemeChange }}>
