@@ -21,21 +21,24 @@ export function CardBox({
       if (!cursorX || !cursorY || !ref.current) return;
       const { x: boxX, y: boxY } = ref.current.getBoundingClientRect();
       const distance = Math.sqrt(
-        Math.pow(boxX - cursorX.get(), 2) + Math.pow(boxY - cursorY.get(), 2),
+        // Add half of the width/height so that it uses its center as its basis
+        // when calculating its distance from the cursor position
+        Math.pow(boxX + ref.current.clientWidth / 2 - cursorX.get(), 2) +
+          Math.pow(boxY + ref.current.clientHeight / 2 - cursorY.get(), 2),
       );
 
-      setOpacity(distance < 225 ? 0.9 : 0.5);
+      setOpacity(distance < 225 ? 1 : 0.5);
     }
 
     window.addEventListener('mousemove', handler);
 
     return () => window.removeEventListener('mousemove', handler);
-  }, []);
+  }, [setOpacity, ref.current]);
 
   return (
     <div
       className={cn(
-        'border-b border-r border-border bg-card transition-opacity',
+        'border-b border-r border-border bg-card',
         /**
          * If a box's position is a multiple of `numberOfBoxPerLine`, it means that it's the last box of a row,
          * so it shouldn't have right border as the container already has a set border
