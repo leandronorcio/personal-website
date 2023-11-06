@@ -15,7 +15,7 @@ import {
 } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AtSign, Mail, User } from 'lucide-react';
-import { ActionFunctionArgs } from '@remix-run/node';
+import { ActionFunctionArgs, MetaFunction } from '@remix-run/node';
 import { useActionData, useSubmit, useNavigate } from '@remix-run/react';
 import {
   isRouteErrorResponse,
@@ -94,6 +94,17 @@ export function ErrorBoundary() {
     </PageContainer>
   );
 }
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: 'Contact Me | Leandro Norcio' },
+    {
+      name: 'description',
+      content:
+        'Hi! Welcome to my portfolio website, this is built using Remix.',
+    },
+  ];
+};
 
 export default function Contact() {
   const { control, handleSubmit, reset } = useForm<ContactFormSchema>({

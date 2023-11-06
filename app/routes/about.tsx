@@ -1,6 +1,18 @@
+import { MetaFunction } from '@remix-run/node';
 import { PageContainer } from '~/components/page-container';
 import { Header } from '~/components/ui/header';
 import memojiMac from '~/photos/memoji-mac.png';
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: 'About Me | Leandro Norcio' },
+    {
+      name: 'description',
+      content:
+        'Hi! Welcome to my portfolio website, this is built using Remix.',
+    },
+  ];
+};
 
 export default function About() {
   return (

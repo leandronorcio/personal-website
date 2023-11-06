@@ -4,6 +4,18 @@ import { ButtonPrimary } from '~/components/ui/button-primary';
 import { CardContainer } from '~/components/ui/card-container';
 import { Header } from '~/components/ui/header';
 import { PageContainer } from '~/components/page-container';
+import { MetaFunction } from '@remix-run/node';
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: 'My Projects | Leandro Norcio' },
+    {
+      name: 'description',
+      content:
+        'Hi! Welcome to my portfolio website, this is built using Remix.',
+    },
+  ];
+};
 
 export default function Projects() {
   return (

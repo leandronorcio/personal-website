@@ -5,8 +5,12 @@ import { Skills } from '~/components/skills';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'New Remix App' },
-    { name: 'description', content: 'Welcome to Remix!' },
+    { title: 'Leandro Norcio' },
+    {
+      name: 'description',
+      content:
+        'Hi! Welcome to my portfolio website, this is built using Remix.',
+    },
   ];
 };
 
