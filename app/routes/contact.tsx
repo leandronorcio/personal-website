@@ -144,8 +144,8 @@ export default function Contact() {
         </span>
       </p>
       {!isSuccessful ? (
-        <CardContainer className="mt-5">
-          <Header className="text-2xl">Contact Form</Header>
+        <CardContainer className="mt-7">
+          <h2 className="text-2xl font-bold">Contact Form</h2>
           <p className="mt-2 text-lg text-muted-foreground">
             You can directly send me an email me at{' '}
             <A href="mailto:leandro@norcio.dev" title="My email address">
