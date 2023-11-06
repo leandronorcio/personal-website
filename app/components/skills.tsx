@@ -8,21 +8,25 @@ const frontEndSkills = [
   'React Native',
   'React Router (and Remix)',
   'React Query',
-  'NextJS',
+  'Next.js',
   'TailwindCSS',
   'Framer Motion',
+  'Zod',
+  'React Hook Form',
 ];
 const backEndSkills = [
-  'ExpressJS',
+  'Node.js',
+  'Express.js',
   'PostgreSQL',
-  'Prisma',
+  'Prisma ORM',
   'OAuth 2.0',
   'OpenID Connect',
-  'EC2',
-  'S3',
-  'DNS Management',
+  'AWS EC2',
+  'AWS S3',
+  'AWS SES',
+  'Cloudflare DNS Management',
 ];
-const tools = ['Node.js', 'Git', 'Linux', 'VSCode'];
+const tools = ['Git', 'Linux', 'VSCode', 'Vite'];
 
 export function Skills() {
   return (
