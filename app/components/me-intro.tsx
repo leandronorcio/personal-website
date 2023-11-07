@@ -9,7 +9,7 @@ export default function MeIntro() {
           Hi <span className="inline-block animate-wave">👋🏻</span> I'm Leandro
           Norcio
         </h1>
-        <h1 className="font-serif text-3xl text-foreground sm:text-4xl">
+        <h1 className="text-center font-serif text-3xl text-foreground sm:text-4xl">
           Full Stack Developer
         </h1>
         <div className="mt-3 flex items-center gap-2 sm:gap-3">

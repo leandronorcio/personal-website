@@ -1,9 +1,4 @@
-import {
-  AnimatePresence,
-  motion,
-  useMotionValue,
-  useTransform,
-} from 'framer-motion';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { cn } from '~/lib/cn';
 import { DarkModeSwitch } from './dark-mode-switch';
 import { Menu } from './menu';
@@ -33,50 +28,36 @@ export function NavigationOverlay() {
         <div className="h-[48px] w-[48px] rounded-full sm:h-[56px] sm:w-[56px]">
           <img src={memoji} alt="My memoji" className="h-full w-full" />
         </div>
-        <div className="flex gap-2 sm:gap-3">
-          <AnimatePresence>
-            {isOpen && (
-              <motion.div
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: -20, opacity: 0 }}
-                className="grid place-items-center"
-              >
-                <DarkModeSwitch />
-              </motion.div>
-            )}
-          </AnimatePresence>
-          <button
+        <button
+          className={cn(
+            'relative z-40 h-[48px] w-[48px] rounded-full border-2 border-muted transition-all hover:scale-105 sm:h-[56px] sm:w-[56px]',
+            !isOpen ? 'border-[1px] bg-card' : 'border-muted',
+          )}
+          onClick={toggle}
+          aria-label="Toggle navigation"
+        >
+          <div
             className={cn(
-              'relative z-40 h-[48px] w-[48px] rounded-full border-2 border-muted transition-all hover:scale-105 sm:h-[56px] sm:w-[56px]',
-              !isOpen ? 'border-[1px] bg-card' : 'border-muted',
+              'absolute left-1/2 top-1/2 h-[3px] w-6 -translate-x-1/2 transition-all',
+              isOpen ? '-translate-y-1/2 rotate-45' : '-translate-y-[250%]',
+              !isOpen ? 'bg-foreground' : 'bg-destructive',
             )}
-            onClick={toggle}
-            aria-label="Toggle navigation"
-          >
-            <div
-              className={cn(
-                'absolute left-1/2 top-1/2 h-[3px] w-6 -translate-x-1/2 transition-all',
-                isOpen ? '-translate-y-1/2 rotate-45' : '-translate-y-[250%]',
-                !isOpen ? 'bg-foreground' : 'bg-destructive',
-              )}
-            ></div>
-            <div
-              className={cn(
-                'absolute left-1/2 top-1/2 h-[3px] w-6 -translate-x-1/2 transition-all',
-                isOpen && '-translate-y-1/2 rotate-45',
-                !isOpen ? 'bg-foreground' : 'bg-destructive',
-              )}
-            ></div>
-            <div
-              className={cn(
-                'absolute left-1/2 top-1/2 h-[3px] w-6 -translate-x-1/2 transition-all',
-                isOpen ? '-translate-y-1/2 -rotate-45' : 'translate-y-[250%]',
-                !isOpen ? 'bg-foreground' : 'bg-destructive',
-              )}
-            ></div>
-          </button>
-        </div>
+          ></div>
+          <div
+            className={cn(
+              'absolute left-1/2 top-1/2 h-[3px] w-6 -translate-x-1/2 transition-all',
+              isOpen && '-translate-y-1/2 rotate-45',
+              !isOpen ? 'bg-foreground' : 'bg-destructive',
+            )}
+          ></div>
+          <div
+            className={cn(
+              'absolute left-1/2 top-1/2 h-[3px] w-6 -translate-x-1/2 transition-all',
+              isOpen ? '-translate-y-1/2 -rotate-45' : 'translate-y-[250%]',
+              !isOpen ? 'bg-foreground' : 'bg-destructive',
+            )}
+          ></div>
+        </button>
       </div>
       {/* <motion.div
         className="fixed left-0 top-0 z-20 h-screen w-screen bg-primary-accent"
@@ -112,7 +93,10 @@ export function NavigationOverlay() {
           }% ${clipPathY.get()}%)`,
         }}
       >
-        {<Menu />}
+        <div className="fixed right-3 top-24 sm:right-4 sm:top-28">
+          <DarkModeSwitch />
+        </div>
+        <Menu />
       </motion.div>
     </>
   );
