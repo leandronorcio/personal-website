@@ -6,7 +6,7 @@
   "scripts": {
     "build": "vite build && vite build --ssr",
     "dev": "vite dev",
-    "start": "dotenv -e .env remix-serve ./build/index.js",
+    "start": "dotenv -v NODE_ENV=production -e .env node server.mjs",
     "prestart:prod": "npm run build",
     "start:prod": "pm2 start pm2.config.cjs",
     "typecheck": "tsc"
