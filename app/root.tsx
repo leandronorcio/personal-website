@@ -43,8 +43,8 @@ export default function App() {
           </MousePositionContextProvider>
         </ThemeContextProvider>
         <ScrollRestoration />
-        <Scripts />
         <LiveReload />
+        <Scripts />
       </body>
     </html>
   );
