@@ -1,4 +1,3 @@
-import type { LinksFunction } from '@remix-run/node';
 import {
   Links,
   LiveReload,
@@ -8,20 +7,13 @@ import {
   ScrollRestoration,
 } from '@remix-run/react';
 
-import stylesheet from '~/tailwind.css';
-import fonts from '~/fonts.css';
+import '~/tailwind.css';
+import '~/fonts.css';
 import { NavigationOverlay } from './components/navigation-overlay';
-import { cssBundleHref } from '@remix-run/css-bundle';
 import { ThemeContextProvider } from './contexts/theme-provider';
 import { MenuContextProvider } from './contexts/menu-provider';
 import { MousePositionContextProvider } from './contexts/mouse-position-provider';
 import { FullPageMouseEffect } from './components/full-page-mouse-effect';
-
-export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
-  { rel: 'stylesheet', href: fonts },
-  { rel: 'stylesheet', href: stylesheet },
-];
 
 export default function App() {
   return (
