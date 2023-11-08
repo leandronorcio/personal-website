@@ -1,5 +1,6 @@
 import { NavLink } from '@remix-run/react';
 import { motion, Variants } from 'framer-motion';
+import { isMobile } from 'react-device-detect';
 import { useMenu } from '~/hooks/useMenu';
 import { cn } from '~/lib/cn';
 
@@ -74,7 +75,7 @@ export function MenuItem({
             ))}
           </div>
           {/* Show the background highlighter when hovered or when the current route is active and not a single menu item is currently being hovered. */}
-          {isHovered && (
+          {!isMobile && isHovered && (
             <motion.div
               layoutId="menu-items-hover-bg"
               className="absolute z-[-1] h-full w-full bg-primary"
@@ -82,7 +83,9 @@ export function MenuItem({
           )}
 
           {/* Passing underline hover effect. */}
-          <div className="mt-1 h-1 origin-right scale-x-0 bg-accent-foreground transition-transform duration-500 group-hover:origin-left group-hover:scale-x-100"></div>
+          {!isMobile && (
+            <div className="mt-1 h-1 origin-right scale-x-0 bg-accent-foreground transition-transform duration-500 group-hover:origin-left group-hover:scale-x-100"></div>
+          )}
         </motion.li>
       )}
     </NavLink>

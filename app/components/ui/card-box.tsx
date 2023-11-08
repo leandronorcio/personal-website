@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useMousePosition } from '~/hooks/useMousePosition';
 import { cn } from '~/lib/cn';
+import { isMobile } from 'react-device-detect';
 
 export function CardBox({
   pos,
@@ -17,6 +18,8 @@ export function CardBox({
   const [opacity, setOpacity] = useState(0.5);
 
   useEffect(() => {
+    if (isMobile) return; // Disable card effects on mobile
+
     function handler() {
       if (!cursorX || !cursorY || !ref.current) return;
       const { x: boxX, y: boxY } = ref.current.getBoundingClientRect();
@@ -33,7 +36,7 @@ export function CardBox({
     window.addEventListener('mousemove', handler);
 
     return () => window.removeEventListener('mousemove', handler);
-  }, [setOpacity, ref.current]);
+  }, []);
 
   return (
     <div

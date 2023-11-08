@@ -1,5 +1,6 @@
 import { MotionValue, useMotionValue } from 'framer-motion';
 import { createContext, useEffect } from 'react';
+import { isMobile } from 'react-device-detect';
 
 // Store the motion values of the mouse position in this context
 export const MousePositionContext = createContext<{
@@ -19,6 +20,9 @@ export function MousePositionContextProvider({
   const cursorY = useMotionValue(0);
 
   useEffect(() => {
+    if (isMobile) return;
+
+    alert('is this reached');
     // Calling `MotionValue.set()` does not trigger a re-render
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);

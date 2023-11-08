@@ -87,6 +87,9 @@ export function NavigationOverlay() {
       <motion.div
         className="fixed left-0 top-0 z-20 flex h-screen w-screen items-center justify-center bg-card"
         transition={springConfig}
+        style={{
+          clipPath: `ellipse(0% 110% at 113% 0%)`,
+        }}
         animate={{
           clipPath: `ellipse(${ellipseX.get()}% 110% at ${
             clipPathX.get() + 3
