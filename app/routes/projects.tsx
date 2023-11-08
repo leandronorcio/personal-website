@@ -2,7 +2,6 @@ import { Badge } from '~/components/ui/badge';
 import { ButtonSecondary } from '~/components/ui/button-secondary';
 import { ButtonPrimary } from '~/components/ui/button-primary';
 import { CardContainer } from '~/components/ui/card-container';
-import { Header } from '~/components/ui/header';
 import { PageContainer } from '~/components/page-container';
 import { MetaFunction } from '@remix-run/node';
 
@@ -20,7 +19,6 @@ export const meta: MetaFunction = () => {
 export default function Projects() {
   return (
     <PageContainer>
-      <Header className="text-3xl">Projects</Header>
       <CardContainer className="mt-6" numberOfBoxPerLine={5}>
         <h2 className="mb-2 text-4xl font-bold">Codeliber</h2>
         <p className="mb-3 text-muted-foreground">

@@ -1,6 +1,5 @@
 import { MetaFunction } from '@remix-run/node';
 import { PageContainer } from '~/components/page-container';
-import { Header } from '~/components/ui/header';
 import memojiMac from '~/photos/memoji-mac.png';
 
 export const meta: MetaFunction = () => {
@@ -17,7 +16,6 @@ export const meta: MetaFunction = () => {
 export default function About() {
   return (
     <PageContainer>
-      <Header className="text-3xl">About me</Header>
       <div className="flex items-center justify-center">
         <img src={memojiMac} alt="Memoji with Mac" className=" h-40 w-40" />
       </div>

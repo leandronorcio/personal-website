@@ -14,7 +14,7 @@ import { ThemeContextProvider } from './contexts/theme-provider';
 import { MenuContextProvider } from './contexts/menu-provider';
 import { MousePositionContextProvider } from './contexts/mouse-position-provider';
 import { FullPageMouseEffect } from './components/full-page-mouse-effect';
-import { isMobile } from 'react-device-detect';
+import { Navbar } from './components/navbar';
 
 export default function App() {
   return (
@@ -29,6 +29,7 @@ export default function App() {
         <ThemeContextProvider>
           <MousePositionContextProvider>
             <MenuContextProvider>
+              <Navbar />
               <NavigationOverlay />
               <Outlet />
               <FullPageMouseEffect />

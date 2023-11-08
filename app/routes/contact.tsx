@@ -129,7 +129,6 @@ export default function Contact() {
 
   return (
     <PageContainer>
-      <Header className="text-3xl">Get in touch</Header>
       <p className="mt-2 text-lg">
         <span className="text-muted-foreground">Email:&nbsp;&nbsp;&nbsp;</span>
         <A href="mailto:leandro@norcio.dev" title="My email address">
