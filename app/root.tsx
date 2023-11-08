@@ -31,7 +31,6 @@ export default function App() {
             <MenuContextProvider>
               <NavigationOverlay />
               <Outlet />
-              {/* Don't render the mouse effect on mobile devices. */}
               <FullPageMouseEffect />
             </MenuContextProvider>
           </MousePositionContextProvider>

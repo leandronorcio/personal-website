@@ -22,7 +22,6 @@ export function MousePositionContextProvider({
   useEffect(() => {
     if (isMobile) return;
 
-    alert('is this reached');
     // Calling `MotionValue.set()` does not trigger a re-render
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);

@@ -46,7 +46,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             {...inputProps}
             ref={ref}
             className={cn(
-              'peer w-full rounded-2xl bg-input pb-2 pr-5 pt-8 outline-none ring-foreground focus:ring-2',
+              'peer w-full rounded-2xl border border-muted bg-input pb-2 pr-5 pt-8 outline-none ring-foreground focus:ring-2',
               Icon ? 'pl-16' : 'pl-5',
               isError &&
                 'bg-destructive ring-destructive-foreground focus:ring-4',

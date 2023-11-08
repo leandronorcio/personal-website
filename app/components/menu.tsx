@@ -8,22 +8,18 @@ export function Menu() {
     {
       title: 'home',
       route: '/',
-      isHovered: false,
     },
     {
       title: 'projects',
       route: '/projects',
-      isHovered: false,
     },
     {
       title: 'about',
       route: '/about',
-      isHovered: true,
     },
     {
       title: 'contact',
       route: '/contact',
-      isHovered: false,
     },
   ]);
 
@@ -37,20 +33,9 @@ export function Menu() {
 
   return (
     <ul className="flex flex-col gap-3 font-serif text-6xl text-foreground ">
-      <AnimatePresence>
-        {isOpen
-          ? items.map(({ title, isHovered, route }, i) => (
-              <MenuItem
-                title={title}
-                route={route}
-                isHovered={isHovered}
-                key={title}
-                setItems={setItems}
-                pos={i}
-              />
-            ))
-          : null}
-      </AnimatePresence>
+      {items.map(({ title, route }, i) => (
+        <MenuItem title={title} route={route} pos={i} key={title} />
+      ))}
     </ul>
   );
 }
