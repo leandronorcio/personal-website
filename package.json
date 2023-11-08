@@ -6,10 +6,11 @@
   "scripts": {
     "build": "vite build && vite build --ssr",
     "dev": "vite dev",
-    "start": "dotenv -v NODE_ENV=production -e .env node server.mjs",
-    "prestart:prod": "npm run build",
-    "start:prod": "pm2 start pm2.config.cjs",
-    "typecheck": "tsc"
+    "serve": "NODE_ENV=production node --env-file=.env server.mjs",
+    "prestart": "npm run build",
+    "start": "npm run serve",
+    "prepm2": "npm run build",
+    "pm2": "pm2 start npm --name 'personal-website' -- run serve"
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.433.0",
