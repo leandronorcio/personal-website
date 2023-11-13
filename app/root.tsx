@@ -15,6 +15,7 @@ import { MenuContextProvider } from './contexts/menu-provider';
 import { MousePositionContextProvider } from './contexts/mouse-position-provider';
 import { FullPageMouseEffect } from './components/full-page-mouse-effect';
 import { Navbar } from './components/navbar';
+import { Footer } from './components/footer';
 
 export default function App() {
   return (
@@ -29,10 +30,13 @@ export default function App() {
         <ThemeContextProvider>
           <MousePositionContextProvider>
             <MenuContextProvider>
-              <Navbar />
               <NavigationOverlay />
-              <Outlet />
               <FullPageMouseEffect />
+              <div className="flex min-h-screen flex-col">
+                <Navbar />
+                <Outlet />
+                <Footer />
+              </div>
             </MenuContextProvider>
           </MousePositionContextProvider>
         </ThemeContextProvider>
