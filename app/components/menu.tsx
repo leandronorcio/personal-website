@@ -1,4 +1,3 @@
-import { AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useMenu } from '~/hooks/useMenu';
 import { MenuItem } from './menu-item';
