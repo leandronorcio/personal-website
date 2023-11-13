@@ -2,8 +2,7 @@ import { PageContainer } from '~/components/page-container';
 import { TextInput } from '~/components/ui/text-input';
 import { Textarea } from '~/components/ui/text-area';
 import { A } from '~/components/ui/a';
-import { ButtonPrimary } from '~/components/ui/button-primary';
-import { ButtonSecondary } from '~/components/ui/button-secondary';
+import { Button } from '~/components/ui/button';
 import { CardContainer } from '~/components/ui/card-container';
 import { Header } from '~/components/ui/header';
 import * as z from 'zod';
@@ -225,12 +224,12 @@ export default function Contact() {
               )}
             />
             <div className="flex gap-3 self-end">
-              <ButtonSecondary type="button" onClick={() => reset()}>
+              <Button mode="secondary" type="button" onClick={() => reset()}>
                 Reset
-              </ButtonSecondary>
-              <ButtonPrimary type="submit" disabled={isSubmitting}>
+              </Button>
+              <Button type="submit" disabled={isSubmitting}>
                 {isSubmitting ? 'Loading...' : 'Submit'}
-              </ButtonPrimary>
+              </Button>
             </div>
           </form>
         </CardContainer>

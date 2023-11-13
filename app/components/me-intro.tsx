@@ -1,5 +1,4 @@
-import { ButtonSecondary } from './ui/button-secondary';
-import { ButtonPrimary } from './ui/button-primary';
+import { Button } from './ui/button';
 import { Link } from '@remix-run/react';
 
 export default function MeIntro() {
@@ -15,11 +14,11 @@ export default function MeIntro() {
         </h1>
         <div className="mt-3 flex items-center gap-2 sm:gap-3">
           <Link to="/contact">
-            <ButtonPrimary>Contact me</ButtonPrimary>
+            <Button>Contact me</Button>
           </Link>
-          <ButtonSecondary>Resume</ButtonSecondary>
+          <Button mode="secondary">Resume</Button>
           <Link to="/projects">
-            <ButtonSecondary>View Projects</ButtonSecondary>
+            <Button mode="secondary">View Projects</Button>
           </Link>
         </div>
       </div>
