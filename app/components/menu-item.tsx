@@ -70,7 +70,7 @@ export const MenuItem = memo(function MenuItem({
                 duration: 0.7,
               }}
             >
-              <div className="mt-1 h-1 origin-right scale-x-0 bg-accent-foreground transition-transform duration-500 group-hover:origin-left group-hover:scale-x-100"></div>
+              <div className="mt-1 h-1 origin-right scale-x-0 bg-foreground transition-transform duration-500 group-hover:origin-left group-hover:scale-x-100"></div>
             </motion.div>
           }
         </motion.li>
