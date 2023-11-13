@@ -1,7 +1,7 @@
 import { motion, useSpring } from 'framer-motion';
 import { useMousePosition } from '~/hooks/useMousePosition';
 
-const size = 500;
+const size = 200;
 export function FullPageMouseEffect() {
   const { cursorX, cursorY } = useMousePosition();
   const springConfig = { damping: 40, stiffness: 100 };
@@ -21,7 +21,7 @@ export function FullPageMouseEffect() {
         filter: 'blur(170px)',
       }}
     >
-      <div className="h-full w-full animate-rotate-and-scale rounded-full bg-gradient-to-r from-pink-800 to-blue-800 opacity-70"></div>
+      <div className="h-full w-full animate-rotate-and-scale rounded-full bg-gradient-to-r from-primary to-warning"></div>
     </motion.div>
   );
 }
