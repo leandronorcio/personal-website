@@ -1,7 +1,9 @@
 import { Button } from './ui/button';
-import { Link } from '@remix-run/react';
+import { Link, useNavigate } from '@remix-run/react';
 
 export default function MeIntro() {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col gap-5 sm:flex-row">
       <div className="flex w-full flex-col items-center justify-center">
@@ -13,13 +15,11 @@ export default function MeIntro() {
           Full Stack Developer
         </h1>
         <div className="mt-3 flex items-center gap-2 sm:gap-3">
-          <Link to="/contact">
-            <Button>Contact me</Button>
-          </Link>
+          <Button onClick={() => navigate('/contact')}>Contact me</Button>
           <Button mode="secondary">Resume</Button>
-          <Link to="/projects">
-            <Button mode="secondary">View Projects</Button>
-          </Link>
+          <Button mode="secondary" onClick={() => navigate('/projects')}>
+            View Projects
+          </Button>
         </div>
       </div>
     </div>
