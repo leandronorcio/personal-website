@@ -11,12 +11,12 @@
     --popover: 251 251 254;
     --popover-foreground: 34 0 74;
     --primary: 136 0 202;
-    --primary-foreground: 250 240 255;
-    --primary-accent: 163 0 241;
+    --primary-foreground: 255 255 255;
+    --primary-accent: 110 0 163;
     --secondary: 247 247 247;
     --secondary-foreground: 77 81 104;
-    --muted: 204 208 222;
-    --muted-foreground: 77 81 104;
+    --muted: 225 227 238;
+    --muted-foreground: 50 52 66;
     --accent: 125 11 239;
     --accent-foreground: 249 242 255;
     --success: 244 252 246;

@@ -14,7 +14,7 @@ export function Button({
     <button
       className={cn(
         'group relative z-0 overflow-hidden rounded-xl px-3 py-2 text-sm font-bold transition-all active:scale-95 disabled:cursor-not-allowed disabled:opacity-70 sm:px-4 sm:py-3 sm:text-base',
-        isPrimary ? 'bg-primary' : 'bg-secondary/70',
+        isPrimary ? 'bg-primary' : 'bg-secondary',
       )}
       {...rest}
     >
