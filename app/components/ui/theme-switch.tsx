@@ -5,9 +5,11 @@ import { AnimatedCircle } from './animated-circle';
 
 export function ThemeSwitch() {
   const { theme, switchTheme } = useTheme();
+
   return (
     <button
       className="relative z-40 h-[48px] w-[48px] overflow-hidden rounded-full sm:h-[56px] sm:w-[56px]"
+      aria-label="Switch theme"
       onClick={switchTheme}
     >
       <AnimatedCircle />
