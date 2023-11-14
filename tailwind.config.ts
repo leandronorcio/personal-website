@@ -37,7 +37,7 @@ export default {
         serif: ['"AntiqueOliveBold"', ...defaultTheme.fontFamily.serif],
       },
       animation: {
-        wave: 'wave 1.5s ease-in-out 2 2s',
+        wave: 'wave 1.5s ease-in-out 2 0.3s',
         'rotate-and-scale': 'rotateAndScale 4s linear infinite',
       },
     },

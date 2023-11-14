@@ -3,7 +3,7 @@ import { TextInput } from '~/components/ui/text-input';
 import { Textarea } from '~/components/ui/text-area';
 import { A } from '~/components/ui/a';
 import { Button } from '~/components/ui/button';
-import { CardContainer } from '~/components/ui/card-container';
+import { Card } from '~/components/ui/card';
 import { Header } from '~/components/ui/header';
 import * as z from 'zod';
 import {
@@ -22,6 +22,8 @@ import {
   useRouteError,
 } from 'react-router';
 import { sendEmailToMyself } from '~/lib/sendEmailToMyself';
+import { motion } from 'framer-motion';
+import { cardVariant } from '~/lib/cardStaggerVariants';
 
 const nonEmptyString = z
   .string()
@@ -128,7 +130,9 @@ export default function Contact() {
 
   return (
     <PageContainer>
-      <h3 className="mb-4 text-3xl">Get In Touch</h3>
+      <div className="mb-4">
+        <Header className="text-3xl">Get In Touch</Header>
+      </div>
       <p className="text-lg">
         <span className="text-muted-foreground">Email:&nbsp;&nbsp;&nbsp;</span>
         <A href="mailto:leandro@norcio.dev" title="My email address">
@@ -154,94 +158,96 @@ export default function Contact() {
         </span>
       </p>
       {!isSuccessful ? (
-        <CardContainer className="mt-7">
-          <h2 className="text-2xl font-bold">Contact Form</h2>
-          <p className="mt-2 text-lg text-muted-foreground">
-            You can directly send me an email me at{' '}
-            <A href="mailto:leandro@norcio.dev" title="My email address">
-              leandro@norcio.dev
-            </A>{' '}
-            , or use this form.
-          </p>
-          <form
-            onSubmit={handleSubmit(onValid, onInValid)}
-            className="mt-3 flex w-full flex-col gap-3"
-          >
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <div className="flex-1">
-                <Controller
-                  control={control}
-                  name="name"
-                  render={({
-                    field: { onChange, ref, value },
-                    fieldState: { error },
-                  }) => (
-                    <TextInput
-                      label="Name"
-                      value={value}
-                      onChange={(val) => onChange(val)}
-                      errorMessage={error?.message}
-                      ref={ref}
-                      Icon={User}
-                    />
-                  )}
-                />
+        <motion.div variants={cardVariant} initial="hidden" animate="show">
+          <Card className="mt-7">
+            <h2 className="text-2xl font-bold">Contact Form</h2>
+            <p className="mt-2 text-lg text-muted-foreground">
+              You can directly send me an email me at{' '}
+              <A href="mailto:leandro@norcio.dev" title="My email address">
+                leandro@norcio.dev
+              </A>{' '}
+              , or use this form.
+            </p>
+            <form
+              onSubmit={handleSubmit(onValid, onInValid)}
+              className="mt-3 flex w-full flex-col gap-3"
+            >
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <div className="flex-1">
+                  <Controller
+                    control={control}
+                    name="name"
+                    render={({
+                      field: { onChange, ref, value },
+                      fieldState: { error },
+                    }) => (
+                      <TextInput
+                        label="Name"
+                        value={value}
+                        onChange={(val) => onChange(val)}
+                        errorMessage={error?.message}
+                        ref={ref}
+                        Icon={User}
+                      />
+                    )}
+                  />
+                </div>
+                <div className="flex-1">
+                  <Controller
+                    control={control}
+                    name="email"
+                    render={({
+                      field: { onChange, ref, value },
+                      fieldState: { error },
+                    }) => (
+                      <TextInput
+                        label="Email address"
+                        value={value}
+                        onChange={(val) => onChange(val)}
+                        errorMessage={error?.message}
+                        ref={ref}
+                        Icon={AtSign}
+                      />
+                    )}
+                  />
+                </div>
               </div>
-              <div className="flex-1">
-                <Controller
-                  control={control}
-                  name="email"
-                  render={({
-                    field: { onChange, ref, value },
-                    fieldState: { error },
-                  }) => (
-                    <TextInput
-                      label="Email address"
-                      value={value}
-                      onChange={(val) => onChange(val)}
-                      errorMessage={error?.message}
-                      ref={ref}
-                      Icon={AtSign}
-                    />
-                  )}
-                />
+              <Controller
+                control={control}
+                name="message"
+                render={({
+                  field: { onChange, ref, value },
+                  fieldState: { error },
+                }) => (
+                  <Textarea
+                    label="Message"
+                    value={value}
+                    onChange={(val) => onChange(val)}
+                    errorMessage={error?.message}
+                    ref={ref}
+                    Icon={Mail}
+                  />
+                )}
+              />
+              <div className="flex gap-3 self-end">
+                <Button mode="secondary" type="button" onClick={() => reset()}>
+                  Reset
+                </Button>
+                <Button type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? 'Loading...' : 'Submit'}
+                </Button>
               </div>
-            </div>
-            <Controller
-              control={control}
-              name="message"
-              render={({
-                field: { onChange, ref, value },
-                fieldState: { error },
-              }) => (
-                <Textarea
-                  label="Message"
-                  value={value}
-                  onChange={(val) => onChange(val)}
-                  errorMessage={error?.message}
-                  ref={ref}
-                  Icon={Mail}
-                />
-              )}
-            />
-            <div className="flex gap-3 self-end">
-              <Button mode="secondary" type="button" onClick={() => reset()}>
-                Reset
-              </Button>
-              <Button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? 'Loading...' : 'Submit'}
-              </Button>
-            </div>
-          </form>
-        </CardContainer>
+            </form>
+          </Card>
+        </motion.div>
       ) : (
-        <CardContainer className="mt-5">
+        <Card className="mt-5">
           <Header className="text-2xl">Message Sent</Header>
           <p className="mt-2 text-lg text-muted-foreground">
             Your message has been successfully sent, expect a reply from me
             within the next 12 hours.
           </p>
-        </CardContainer>
+        </Card>
       )}
     </PageContainer>
   );

@@ -1,6 +1,8 @@
+import { cardVariant, cardsContainerVariant } from '~/lib/cardStaggerVariants';
 import { Badge } from './ui/badge';
-import { CardContainer } from './ui/card-container';
+import { Card } from './ui/card';
 import { Header } from './ui/header';
+import { motion } from 'framer-motion';
 
 const languages = ['TypeScript', 'JavaScript', 'CSS', 'HTML', 'Python'];
 const frontEndSkills = [
@@ -30,12 +32,17 @@ const tools = ['Git', 'Linux', 'VSCode', 'Vite'];
 
 export function Skills() {
   return (
-    <div className="mt-5 flex flex-col gap-3 sm:gap-4">
+    <motion.div
+      variants={cardsContainerVariant}
+      initial="hidden"
+      animate="show"
+      className="mt-5 flex flex-col gap-3 sm:gap-4"
+    >
       <SkillsSection header="Languages" skills={languages} />
       <SkillsSection header="Frontend Skills" skills={frontEndSkills} />
       <SkillsSection header="Backend Skills" skills={backEndSkills} />
       <SkillsSection header="Tools" skills={tools} />
-    </div>
+    </motion.div>
   );
 }
 
@@ -47,13 +54,15 @@ function SkillsSection({
   skills: string[];
 }) {
   return (
-    <CardContainer>
-      <Header className="text-xl sm:text-2xl">{header}</Header>
-      <div className="mt-3 flex flex-wrap gap-1">
-        {skills.map((item) => (
-          <Badge key={item}>{item}</Badge>
-        ))}
-      </div>
-    </CardContainer>
+    <motion.div variants={cardVariant}>
+      <Card>
+        <Header className="text-xl sm:text-2xl">{header}</Header>
+        <div className="mt-3 flex flex-wrap gap-1">
+          {skills.map((item) => (
+            <Badge key={item}>{item}</Badge>
+          ))}
+        </div>
+      </Card>
+    </motion.div>
   );
 }

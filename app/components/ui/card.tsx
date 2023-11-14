@@ -8,7 +8,7 @@ interface CardContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 // A card container with grid lines (like rulers) as its background
-export function CardContainer({
+export function Card({
   children,
   numberOfBoxPerLine = 3,
   ...rest
