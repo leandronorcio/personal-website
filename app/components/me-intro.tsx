@@ -1,6 +1,7 @@
 import { Button } from './ui/button';
 import { useNavigate } from '@remix-run/react';
 import { motion } from 'framer-motion';
+import { openInNewTab } from '~/lib/openInNewTab';
 
 export default function MeIntro() {
   const navigate = useNavigate();
@@ -29,7 +30,14 @@ export default function MeIntro() {
           className="mt-3 flex items-center gap-2 sm:gap-3"
         >
           <Button onClick={() => navigate('/contact')}>Contact me</Button>
-          <Button mode="secondary">Resume</Button>
+          <Button
+            mode="secondary"
+            onClick={() =>
+              openInNewTab(import.meta.env.VITE_RESUME_URL as string)
+            }
+          >
+            Resume
+          </Button>
           <Button mode="secondary" onClick={() => navigate('/projects')}>
             View Projects
           </Button>

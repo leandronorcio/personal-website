@@ -144,15 +144,18 @@ export default function Contact() {
           Socials:&nbsp;&nbsp;&nbsp;
         </span>
         <span className="inline-flex gap-2">
-          <A href="mailto:leandro@norcio.dev" title="My email address">
+          <A href="https://github.com/leandronorcio" title="My Github">
             Github
           </A>
           |
-          <A href="mailto:leandro@norcio.dev" title="My email address">
+          <A href="https://twitter.com/norciodotdev" title="My Twitter">
             Twitter
           </A>
           |
-          <A href="mailto:leandro@norcio.dev" title="My email address">
+          <A
+            href="https://www.linkedin.com/in/leandronorcio/"
+            title="My LinkedIn"
+          >
             LinkedIn
           </A>
         </span>
