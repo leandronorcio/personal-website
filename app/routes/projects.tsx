@@ -108,6 +108,15 @@ export default function Projects() {
                 Website
               </Button>
               <Button
+                onClick={() =>
+                  openInNewTab(
+                    'https://norcio-dot-dev-public-files.s3.us-east-1.amazonaws.com/munia/showcase.mp4',
+                  )
+                }
+              >
+                Video Showcase
+              </Button>
+              <Button
                 mode="secondary"
                 onClick={() =>
                   openInNewTab('https://github.com/leandronorcio/munia')
