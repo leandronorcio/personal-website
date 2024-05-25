@@ -9,20 +9,20 @@
 }
 
 @font-face {
-  font-family: 'TTNorms';
+  font-family: 'NotoSans';
   src:
-    url('./fonts/ttnorms-regular-webfont.woff2') format('woff2'),
-    url('./fonts/ttnorms-regular-webfont.woff') format('woff');
+    url('./fonts/notosans-regular-webfont.woff2') format('woff2'),
+    url('./fonts/notosans-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'TTNorms';
+  font-family: 'NotoSans';
   src:
-    url('./fonts/ttnorms-bold-webfont.woff2') format('woff2'),
-    url('./fonts/ttnorms-bold-webfont.woff') format('woff');
+    url('./fonts/notosans-bold-webfont.woff2') format('woff2'),
+    url('./fonts/notosans-bold-webfont.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;

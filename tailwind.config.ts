@@ -33,7 +33,7 @@ export default {
         input: 'rgba(var(--input) / <alpha-value>)',
       },
       fontFamily: {
-        sans: ['"TTNorms"', ...defaultTheme.fontFamily.sans],
+        sans: ['"NotoSans"', ...defaultTheme.fontFamily.sans],
         serif: ['"AntiqueOliveBold"', ...defaultTheme.fontFamily.serif],
       },
       animation: {
